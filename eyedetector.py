@@ -1,4 +1,5 @@
 from re import L
+from unittest import result
 import cv2
 import numpy as np
 import mediapipe as mp
@@ -20,13 +21,18 @@ with mp_face_mesh.FaceMesh(max_num_faces = 1, refine_landmarks = True, min_detec
         rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         results = face_mesh.process(rgb_frame)
         if results.multi_face_landmarks:
-            # print(results.multi_face_landmarks)
+            #print(results.multi_face_landmarks)
             mesh_points = np.array([np.multiply([p.x, p.y], [img_width, img_height]).astype(int) for p in results.multi_face_landmarks[0].landmark])
             #print(mesh_points.shape)
             cv2.polylines(frame, [mesh_points[LEFT_EYE]], True, (0, 255, 0), 1, cv2.LINE_AA)
             cv2.polylines(frame, [mesh_points[RIGHT_EYE]], True, (0, 255, 0), 1, cv2.LINE_AA)
             cv2.polylines(frame, [mesh_points[LEFT_IRIS]], True, (0, 255, 0), 1, cv2.LINE_AA)
             cv2.polylines(frame, [mesh_points[RIGHT_IRIS]], True, (0, 255, 0), 1, cv2.LINE_AA)
+            for i in results.multi_face_landmarks:
+                #print(i.landmark[42].y * 480)
+                cv2.circle(frame, (int(i.landmark[4].x * 640) , int(i.landmark[4].y * 480)), 5, (0, 255, 0), -1)
+                cv2.circle(frame, (int(i.landmark[19].x * 640) , int(i.landmark[19].y * 480)), 5, (0, 255, 0), -1)
+            #cv2.circle(frame, results.multi_face_landmarks[42], 5, (0, 255, 0), -1)
         cv2.imshow('Eye Tracker', frame)
         key = cv2.waitKey(1)
         if key == ord('q'):
