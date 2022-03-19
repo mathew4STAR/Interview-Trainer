@@ -32,10 +32,30 @@ with mp_face_mesh.FaceMesh(max_num_faces = 1, refine_landmarks = True, min_detec
                 #print(i.landmark[42].y * 480)
                 pos_4 = i.landmark[4].y * 480
                 pos_19 = i.landmark[19].y * 480
-                print(pos_19- pos_4)
+                dis = pos_19 - pos_4
+                #if dis > 8:
+                    #print("yes")
+                #else:
+                    #print("no")
+                """
                 cv2.circle(frame, (int(i.landmark[4].x * 640) , int(i.landmark[4].y * 480)), 5, (0, 255, 0), -1)
                 cv2.circle(frame, (int(i.landmark[19].x * 640) , int(i.landmark[19].y * 480)), 5, (0, 255, 0), -1)
-            #cv2.circle(frame, results.multi_face_landmarks[42], 5, (0, 255, 0), -1)
+                cv2.circle(frame, (int(i.landmark[474].x * 640) , int(i.landmark[474].y * 480)), 5, (0, 255, 0), -1)
+                cv2.circle(frame, (int(i.landmark[466].x * 640) , int(i.landmark[466].y * 480)), 5, (0, 255, 0), -1)
+                cv2.circle(frame, (int(i.landmark[471].x * 640) , int(i.landmark[471].y * 480)), 5, (0, 255, 0), -1)
+                cv2.circle(frame, (int(i.landmark[33].x * 640) , int(i.landmark[33].y * 480)), 5, (0, 255, 0), -1)
+                """
+                #Left Eye
+                pos_474 = i.landmark[474].x * 640
+                pos_466 = i.landmark[466].x * 640
+                #Right Eye
+                pos_471 = i.landmark[471].x * 640
+                pos_33 = i.landmark[33].x * 640
+
+                if pos_466 - pos_474 < 2:
+                    print("Looking Left")
+                if pos_471 - pos_33 < 2:
+                    print("Looking Right")
         cv2.imshow('Eye Tracker', frame)
         key = cv2.waitKey(1)
         if key == ord('q'):
