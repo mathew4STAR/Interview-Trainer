@@ -1,6 +1,6 @@
 from serial import Serial
 
-bluetooth = Serial("COM6", baudrate=9600)
+bluetooth = Serial("COM6", baudrate=115200)
 
 bluetooth.flushInput()
 

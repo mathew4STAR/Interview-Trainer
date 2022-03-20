@@ -34,11 +34,11 @@ void loop() {
   mpu.getEvent(&a, &g, &temp);
   x = a.acceleration.x;
   if (x < 8){
-    Serial.write("BODY STRAIGHT");
+    SerialBT.write("BODY NOT STRAIGHT");
     digitalWrite(13, HIGH);
   }
   else{
-    Serial.write("BODY NOT STRAIGHT");
+    SerialBT.write("BODY STRAIGHT");
     digitalWrite(13, LOW);
   }
   delay(15);
