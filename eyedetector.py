@@ -1,5 +1,3 @@
-from re import L
-from unittest import result
 import cv2
 import numpy as np
 import mediapipe as mp
@@ -58,7 +56,7 @@ def track(show_landmarks):
                     pos_33 = i.landmark[33].x * 640
 
                     if pos_466 - pos_474 < 2:
-                        iris_status = "Left Left"
+                        iris_status = "Looking Left"
                     elif pos_471 - pos_33 < 2:
                         iris_status = "Looking Right"
                     else:

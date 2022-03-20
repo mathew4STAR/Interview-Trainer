@@ -6,5 +6,5 @@ bluetooth.flushInput()
 
 while True:
     print("what")
-    input = bluetooth.readline()
-    print(input)
+    input = bluetooth.readline(timout=0.5)
+    print(input.decode())

@@ -14,7 +14,7 @@ BluetoothSerial SerialBT;
 void setup() {
   pinMode(13, OUTPUT);
   Serial.begin(115200);
-  SerialBT.begin("ESP32test"); //Bluetooth device name
+  SerialBT.begin("Posture Checker"); 
   Serial.println("The device started, now you can pair it with bluetooth!");
 
   if (!mpu.begin()) {
