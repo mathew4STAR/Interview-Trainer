@@ -1,0 +1,19 @@
+Can you name the four types of @media properties?
+
+Describe the layout of the CSS Box Model and briefly describe each component.
+
+What is the difference between em and rem units?
+
+What are the advantages of using CSS sprites and how are they utilized?
+
+What is the difference between '+' and '~' sibling selectors?.
+
+Can you describe how CSS specificity works?
+
+What is a focus ring? What is the correct solution to handle them?
+
+What is CSS BEM?
+
+What are the advantages of using CSS preprocessors?
+
+Using flexbox, create a 3-column layout where each column takes up a col-{n} / 12 ratio of the container.
