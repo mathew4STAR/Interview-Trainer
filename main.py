@@ -21,7 +21,8 @@ iris.pack()
 
 while True:
     tracker = eyedetector.track(False)
-    img = ImageTk.PhotoImage(Image.fromarray(tracker[2]))
+    cam = cv2.cvtColor(tracker[2], cv2.COLOR_BGR2RGB)
+    img = ImageTk.PhotoImage(Image.fromarray(cam))
     screen2["image"] = img
     focus["text"] = tracker[0]
     iris["text"] = tracker[1]
